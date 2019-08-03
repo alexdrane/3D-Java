@@ -12,6 +12,12 @@ public class Vector {
 		return x*v2.x+y*v2.y+z*v2.z;
 	}
 	
+	public void print() {
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(z);
+	}
+	
 	public Vector cross(Vector v2) {
 		double nx = y*v2.z-z*v2.y;
 		double ny = z*v2.x-x*v2.z;
@@ -20,7 +26,7 @@ public class Vector {
 	}
 	
 	public double magnitude() {
-		return Math.pow(x, 2)+Math.pow(y, 2)+Math.pow(z, 2);
+		return Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2)+Math.pow(z, 2));
 	}
 	
 	public Vector add(Vector v2) {
@@ -44,9 +50,10 @@ public class Vector {
 		return new Vector(nx,ny,nz);
 	}
 	
-	public Vector rotateZ(double rz) {
-		double nx = Math.cos(rz)*x+Math.sin(rz)*x;
-		double ny = Math.cos(rz)*y-Math.sin(rz)*y;
+	public Vector rotateZ(double r) {
+		double rz = (r/180)*Math.PI;
+		double nx = (x*Math.cos(rz))-(y*Math.sin(rz));
+		double ny = (y*Math.cos(rz))+(x*Math.sin(rz));
 		double nz = z;
 		return new Vector(nx,ny,nz);
 	}
@@ -64,5 +71,6 @@ public class Vector {
 		double nz = Math.sin(ry)*z+Math.cos(ry)*y;
 		return new Vector(nx,ny,nz);
 	}
+	
 	
 }
