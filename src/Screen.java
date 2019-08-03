@@ -61,9 +61,11 @@ public class Screen extends JPanel implements KeyListener, MouseMotionListener{
     			}
     			).getScaled(0.5);
 		Vpt = new ViewPoint(new Vector(0,0,0),W,H,1000);
-    	world = new Environment(new Object[] {new Object(cube,new Vector(0,2000,0)),
+    	world = new Environment(new Object[] {new Object(cube,new Vector(2000,4000,0)),
     			new Object(cube,new Vector(200,2200,0)),
-    			new Object(cube,new Vector(-200,1800,0))},
+    			new Object(cube,new Vector(-200,1800,0)),
+    			new Object(cube,new Vector(-600,2800,0)),
+    			new Object(cube,new Vector(600,2400,0))},
     			Vpt);
     	
 		
@@ -82,7 +84,7 @@ public class Screen extends JPanel implements KeyListener, MouseMotionListener{
 		
 		g.clearRect(0, 0, W, H);
 		world.render(g);
-		world.move(xv,yv,zv);
+		world.move(xv*2,yv*2,zv*2);
 		world.rotateZ((-x+px));
 		repaint();
 		

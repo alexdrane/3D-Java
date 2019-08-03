@@ -39,7 +39,7 @@ public class Plane {
 	}
 	
 	public void draw(Graphics g, int[] xArray, int[] yArray) {
-		g.setColor(Color.white);
+		g.setColor(Color.gray);
 		g.fillPolygon(xArray, yArray, xArray.length);
 		g.setColor(Color.black);
 		g.drawPolygon(xArray, yArray, xArray.length);
